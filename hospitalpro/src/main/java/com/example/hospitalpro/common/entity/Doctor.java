@@ -1,5 +1,82 @@
 package com.example.hospitalpro.common.entity;
 
 public class Doctor {
+	private String name;
+	private String phone;
+	private String sex;
+	private Dept dept;
+	private Uspass uspass;
+	private Station station;
+	private End end;
+	private Work work;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public Dept getDept() {
+		return dept;
+	}
+
+	public void setDept(Dept dept) {
+		this.dept = dept;
+	}
+
+	public Uspass getUspass() {
+		return uspass;
+	}
+
+	public void setUspass(Uspass uspass) {
+		this.uspass = uspass;
+	}
+
+	public Station getStation() {
+		return station;
+	}
+
+	public void setStation(Station station) {
+		this.station = station;
+	}
+
+	public End getEnd() {
+		return end;
+	}
+
+	public void setEnd(End end) {
+		this.end = end;
+	}
+
+	public Work getWork() {
+		return work;
+	}
+
+	public void setWork(Work work) {
+		this.work = work;
+	}
+
+	public Doctor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 }
