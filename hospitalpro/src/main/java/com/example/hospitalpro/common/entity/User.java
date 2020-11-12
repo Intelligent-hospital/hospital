@@ -10,7 +10,6 @@ public class User {
 	private String phone;
 	private String address;
 	private Uspass uspass; // 账号密码表账号密码
-	private End end; // 用户查病历？
 
 	public int getId() {
 		return id;
@@ -58,14 +57,6 @@ public class User {
 
 	public void setUspass(Uspass uspass) {
 		this.uspass = uspass;
-	}
-
-	public End getEnd() {
-		return end;
-	}
-
-	public void setEnd(End end) {
-		this.end = end;
 	}
 
 	public User() {

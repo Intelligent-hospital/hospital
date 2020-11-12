@@ -9,6 +9,24 @@ public class End {
 	private int id;
 	private String end; // 病历详情
 	private Date savetime; // 保存时间
+	private Doctor doctor; // 医生id查询病历
+	private Regi regi; // 挂号id查询病历
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public Regi getRegi() {
+		return regi;
+	}
+
+	public void setRegi(Regi regi) {
+		this.regi = regi;
+	}
 
 	public int getId() {
 		return id;

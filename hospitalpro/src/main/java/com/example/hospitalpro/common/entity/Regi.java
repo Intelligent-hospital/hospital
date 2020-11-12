@@ -13,7 +13,6 @@ public class Regi {
 	private int statu; // 是否就诊
 	private int sign; // 是否签到
 	private int isdelete; // 是否删除
-	private End end; // 可以查到病历
 
 	public int getId() {
 		return id;
@@ -69,14 +68,6 @@ public class Regi {
 
 	public void setIsdelete(int isdelete) {
 		this.isdelete = isdelete;
-	}
-
-	public End getEnd() {
-		return end;
-	}
-
-	public void setEnd(End end) {
-		this.end = end;
 	}
 
 	public Regi() {
