@@ -4,6 +4,7 @@ package com.example.hospitalpro.common.entity;
  * 工作时间，从星期一到周五顺序排列，am上午，pm下午
  */
 public class Work {
+	private int id;
 	private int monam;
 	private int monpm;
 	private int tueam;
@@ -18,6 +19,14 @@ public class Work {
 	private int satpm;
 	private int sunam;
 	private int sunpm;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getMonam() {
 		return monam;

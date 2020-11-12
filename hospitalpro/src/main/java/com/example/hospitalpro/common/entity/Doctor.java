@@ -4,6 +4,7 @@ package com.example.hospitalpro.common.entity;
  * 医生
  */
 public class Doctor {
+	private int id;
 	private String name;
 	private String phone;
 	private String sex;

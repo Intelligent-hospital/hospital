@@ -6,8 +6,17 @@ import java.sql.Date;
  * 病历单
  */
 public class End {
+	private int id;
 	private String end; // 病历详情
 	private Date savetime; // 保存时间
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getEnd() {
 		return end;
