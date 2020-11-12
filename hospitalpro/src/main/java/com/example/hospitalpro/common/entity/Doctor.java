@@ -11,7 +11,6 @@ public class Doctor {
 	private Dept dept; // 所属部门
 	private Uspass uspass; // 账号密码
 	private Station station; // 职位
-	private End end; // 填写的病历单
 	private Work work; // 工作时间
 
 	public String getName() {
@@ -60,14 +59,6 @@ public class Doctor {
 
 	public void setStation(Station station) {
 		this.station = station;
-	}
-
-	public End getEnd() {
-		return end;
-	}
-
-	public void setEnd(End end) {
-		this.end = end;
 	}
 
 	public Work getWork() {
