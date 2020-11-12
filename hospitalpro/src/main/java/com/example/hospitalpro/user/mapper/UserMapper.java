@@ -10,6 +10,7 @@ import com.example.hospitalpro.common.entity.Regi;
 @Mapper
 public interface UserMapper {
 	// 挂号
-	@Insert("insert into regi(d_id,pa_id,time)")
-	List<Regi> registr();
+	@Insert("insert into regi(d_id,pa_id,time) values(#{d_id},#{pa_id},#{time})")
+	List<Regi> registr(Regi regi);
+
 }
