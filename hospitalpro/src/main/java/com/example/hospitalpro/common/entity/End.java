@@ -2,9 +2,12 @@ package com.example.hospitalpro.common.entity;
 
 import java.sql.Date;
 
+/*
+ * 病历单
+ */
 public class End {
-	private String end;
-	private Date savetime;
+	private String end; // 病历详情
+	private Date savetime; // 保存时间
 
 	public String getEnd() {
 		return end;

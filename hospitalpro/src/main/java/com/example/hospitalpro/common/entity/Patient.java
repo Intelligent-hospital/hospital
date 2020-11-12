@@ -1,8 +1,11 @@
 package com.example.hospitalpro.common.entity;
 
+/*
+ * 就诊人
+ */
 public class Patient {
-	private String name;
-	private String idCard;
+	private String name; // 名字
+	private String idCard; // 身份证
 
 	public String getName() {
 		return name;

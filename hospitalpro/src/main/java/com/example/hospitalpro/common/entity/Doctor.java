@@ -1,14 +1,17 @@
 package com.example.hospitalpro.common.entity;
 
+/*
+ * 医生
+ */
 public class Doctor {
 	private String name;
 	private String phone;
 	private String sex;
-	private Dept dept;
-	private Uspass uspass;
-	private Station station;
-	private End end;
-	private Work work;
+	private Dept dept; // 所属部门
+	private Uspass uspass; // 账号密码
+	private Station station; // 职位
+	private End end; // 填写的病历单
+	private Work work; // 工作时间
 
 	public String getName() {
 		return name;
