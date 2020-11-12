@@ -2,14 +2,17 @@ package com.example.hospitalpro.common.entity;
 
 import java.sql.Date;
 
+/*
+ * 	挂号单
+ */
 public class Regi {
-	private Patient patient;
-	private Doctor doctor;
-	private Date time;
-	private int statu;
-	private int sign;
-	private int isdelete;
-	private End end;
+	private Patient patient; // 就诊人信息
+	private Doctor doctor; // 挂号的医生
+	private Date time; // 挂号时间
+	private int statu; // 是否就诊
+	private int sign; // 是否签到
+	private int isdelete; // 是否删除
+	private End end; // 可以查到病历
 
 	public Patient getPatient() {
 		return patient;

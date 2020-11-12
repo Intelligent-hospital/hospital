@@ -2,9 +2,12 @@ package com.example.hospitalpro.common.entity;
 
 import java.math.BigDecimal;
 
+/*
+ * 职位
+ */
 public class Station {
-	private String stations;
-	private BigDecimal price;
+	private String stations; // 具体职位
+	private BigDecimal price; // 价格
 
 	public String getStations() {
 		return stations;

@@ -1,5 +1,8 @@
 package com.example.hospitalpro.common.entity;
 
+/*
+ * 账号密码
+ */
 public class Uspass {
 	private String username;
 	private String password;
