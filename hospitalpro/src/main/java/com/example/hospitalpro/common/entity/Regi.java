@@ -6,6 +6,7 @@ import java.sql.Date;
  * 	挂号单
  */
 public class Regi {
+	private int id;
 	private Patient patient; // 就诊人信息
 	private Doctor doctor; // 挂号的医生
 	private Date time; // 挂号时间
@@ -13,6 +14,14 @@ public class Regi {
 	private int sign; // 是否签到
 	private int isdelete; // 是否删除
 	private End end; // 可以查到病历
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Patient getPatient() {
 		return patient;

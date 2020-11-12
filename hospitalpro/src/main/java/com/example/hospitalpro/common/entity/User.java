@@ -4,12 +4,21 @@ package com.example.hospitalpro.common.entity;
  * 用户
  */
 public class User {
+	private int id;
 	private String name;
 	private String idCard;
 	private String phone;
 	private String address;
 	private Uspass uspass; // 账号密码表账号密码
 	private End end; // 用户查病历？
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
