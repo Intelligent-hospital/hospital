@@ -69,6 +69,14 @@ public class Doctor {
 		this.work = work;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Doctor() {
 		super();
 		// TODO Auto-generated constructor stub
