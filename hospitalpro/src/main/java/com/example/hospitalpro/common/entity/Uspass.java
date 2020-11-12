@@ -4,8 +4,17 @@ package com.example.hospitalpro.common.entity;
  * 账号密码
  */
 public class Uspass {
+	private int id;
 	private String username;
 	private String password;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getUsername() {
 		return username;

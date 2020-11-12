@@ -3,6 +3,6 @@ package com.example.hospitalpro.doctor.mapper;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public class DoctorMapper {
+public interface DoctorMapper {
 
 }
