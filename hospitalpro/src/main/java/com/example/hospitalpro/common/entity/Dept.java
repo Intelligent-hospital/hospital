@@ -1,8 +1,11 @@
 package com.example.hospitalpro.common.entity;
 
+/*
+ * 科室表
+ */
 public class Dept {
-	private String name;
-	private String synopsis;
+	private String name; // 科室名
+	private String synopsis; // 科室详情
 
 	public String getName() {
 		return name;

@@ -1,5 +1,8 @@
 package com.example.hospitalpro.common.entity;
 
+/*
+ * 工作时间，从星期一到周五顺序排列，am上午，pm下午
+ */
 public class Work {
 	private int monam;
 	private int monpm;

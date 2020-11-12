@@ -1,12 +1,15 @@
 package com.example.hospitalpro.common.entity;
 
+/*
+ * 用户
+ */
 public class User {
 	private String name;
 	private String idCard;
 	private String phone;
 	private String address;
-	private Uspass uspass;
-	private End end;
+	private Uspass uspass; // 账号密码表账号密码
+	private End end; // 用户查病历？
 
 	public String getName() {
 		return name;
