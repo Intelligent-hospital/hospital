@@ -67,9 +67,7 @@ public class UserController {
 	 */
 	@PostMapping("/patient")
 	public Patient addPatient(@RequestBody Patient patient) {
-
 		String idCard = patient.getPaidCard();
-		int uid = patient.getUser().getId();
 		// 截取身份证第15位判断性别
 		int sex = idCard.charAt(16);
 		if (sex == 1) {

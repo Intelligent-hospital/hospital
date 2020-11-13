@@ -29,7 +29,7 @@ public interface PatientMapper {
 	 * 
 	 * @param patient
 	 */
-	@Insert("insert into patient(u_id,paname,paidCard) values(1,#{paname},#{paidCard})")
+	@Insert("insert into patient(u_id,paname,paidCard,sex,age) values(#{user.id},#{paname},#{paidCard},#{sex},#{age})")
 	void addPatient(Patient patient);
 
 	/**
