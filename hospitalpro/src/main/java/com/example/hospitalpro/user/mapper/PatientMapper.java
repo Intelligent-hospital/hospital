@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import com.example.hospitalpro.common.entity.Doctor;
 import com.example.hospitalpro.common.entity.Patient;
@@ -32,11 +31,4 @@ public interface PatientMapper {
 	@Insert("insert into patient(u_id,paname,paidCard,sex,age) values(#{user.id},#{paname},#{paidCard},#{sex},#{age})")
 	void addPatient(Patient patient);
 
-	/**
-	 * 取消预约
-	 * 
-	 * @param id 就诊人id
-	 */
-	@Update("update Regi set isdelete=1 where id=#{id}")
-	void cancelReservation(int id);
 }

@@ -2,14 +2,22 @@ package com.example.hospitalpro.doctor.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
+import com.example.hospitalpro.common.entity.Doctor;
 import com.example.hospitalpro.common.entity.Regi;
 
-@Service
 public interface DoctorService {
 	/*
-	 * 排号
+	 * 取消预约
 	 */
-	List<Regi> rownumber();
+	public String callback(int id);
+
+	/*
+	 * 当天排号
+	 */
+	public List<Regi> rownumber();
+
+	/*
+	 * 每个医生当天坐诊时间
+	 */
+	public List<Doctor> regifull(int id);
 }

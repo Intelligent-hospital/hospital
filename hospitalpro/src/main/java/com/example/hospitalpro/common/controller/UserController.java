@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.hospitalpro.common.entity.Doctor;
 import com.example.hospitalpro.common.entity.Patient;
 import com.example.hospitalpro.common.entity.Regi;
+import com.example.hospitalpro.doctor.service.DoctorService;
 import com.example.hospitalpro.user.mapper.PatientMapper;
 import com.example.hospitalpro.user.mapper.RegiMapper;
 
@@ -26,10 +27,14 @@ public class UserController {
 	RegiMapper regiMapper;
 	@Autowired
 	PatientMapper patinetmapper;
+	@Autowired
+	DoctorService doctorservice;
 
 //	挂号
 	@PostMapping("/doctor/registration")
 	public Regi addregi(@RequestBody Regi regi) {
+//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		String datatime = df.format(regi.getTime());
 		Date datatime = regi.getTime();
 		int did = regi.getDoctor().getId();
 		int paid = regi.getPatient().getId();
@@ -37,7 +42,7 @@ public class UserController {
 		return regi;
 	}
 
-//	查询医生时间
+//	查询医生坐诊时间
 	@GetMapping("/doctor/{id}")
 	public List<Doctor> show(@PathVariable int id) {
 		return regiMapper.findbywork(id);
@@ -82,22 +87,14 @@ public class UserController {
 		// 调用添加方法
 		patinetmapper.addPatient(patient);
 		return patient;
+
 	}
 
 	/*
 	 * 取消预约
 	 */
 	@PutMapping("/doctor/{appointmentid}")
-	public void cancelReservation(int id) {
-		patinetmapper.cancelReservation(id);
-		System.out.println("取消成功");
-	}
-
-	/*
-	 * 查询所有挂号信息
-	 */
-	@GetMapping("/doctor/pat")
-	public List<Regi> findregi() {
-		return regiMapper.findallregi();
+	public String cancelReservation(int id) {
+		return doctorservice.callback(id);
 	}
 }

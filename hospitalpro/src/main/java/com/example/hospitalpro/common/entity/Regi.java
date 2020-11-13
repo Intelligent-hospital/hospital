@@ -70,6 +70,12 @@ public class Regi {
 		this.isdelete = isdelete;
 	}
 
+	@Override
+	public String toString() {
+		return "Regi [id=" + id + ", patient=" + patient + ", doctor=" + doctor + ", time=" + time + ", statu=" + statu
+				+ ", sign=" + sign + ", isdelete=" + isdelete + "]";
+	}
+
 	public Regi() {
 		super();
 		// TODO Auto-generated constructor stub
