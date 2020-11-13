@@ -27,11 +27,15 @@ public interface RegiMapper {
 			@Result(column = "w_id", property = "work", javaType = Work.class, one = @One(select = "com.example.hospitalpro.user.mapper.WorkMapper.findbywork")) })
 	public List<Doctor> findbywork(int id);
 
-	// 查询挂号
+	// 查询一个挂号
 	@Select("select d_id,pa_id,time from regi where id=#{id}")
-	@Results(value = {
+	@Results(id = "seregi", value = {
 			@Result(column = "d_id", property = "doctor", javaType = Doctor.class, one = @One(select = "com.example.hospitalpro.user.mapper.PatientMapper.find")),
 			@Result(column = "pa_id", property = "patient", javaType = Patient.class, one = @One(select = "com.example.hospitalpro.user.mapper.PatientMapper.findbypat")) })
 	List<Regi> findallreg(int id);
+
+	// 查询所有挂号
+	@Select("select d_id,pa_id,time from regi")
+	List<Regi> findallregi();
 
 }

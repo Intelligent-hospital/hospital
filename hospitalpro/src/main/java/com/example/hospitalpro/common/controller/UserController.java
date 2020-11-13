@@ -84,9 +84,20 @@ public class UserController {
 		return patient;
 	}
 
+	/*
+	 * 取消预约
+	 */
 	@PutMapping("/doctor/{appointmentid}")
 	public void cancelReservation(int id) {
 		patinetmapper.cancelReservation(id);
 		System.out.println("取消成功");
+	}
+
+	/*
+	 * 查询所有挂号信息
+	 */
+	@GetMapping("/doctor/pat")
+	public List<Regi> findregi() {
+		return regiMapper.findallregi();
 	}
 }
