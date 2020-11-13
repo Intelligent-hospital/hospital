@@ -5,9 +5,11 @@ package com.example.hospitalpro.common.entity;
  */
 public class Patient {
 	private int id;
-	private String name; // 名字
-	private String idCard; // 身份证
+	private String paname; // 名字
+	private String paidCard; // 身份证
 	private User user; // 用户可以添加多个
+	private String sex;
+	private int age;
 
 	public int getId() {
 		return id;
@@ -17,20 +19,20 @@ public class Patient {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getPaname() {
+		return paname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPaname(String paname) {
+		this.paname = paname;
 	}
 
-	public String getIdCard() {
-		return idCard;
+	public String getPaidCard() {
+		return paidCard;
 	}
 
-	public void setIdCard(String idCard) {
-		this.idCard = idCard;
+	public void setPaidCard(String paidCard) {
+		this.paidCard = paidCard;
 	}
 
 	public User getUser() {
@@ -41,9 +43,31 @@ public class Patient {
 		this.user = user;
 	}
 
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
 	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", paname=" + paname + ", paidCard=" + paidCard + ", user=" + user + ", sex=" + sex
+				+ ", age=" + age + "]";
 	}
 
 }

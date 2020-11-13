@@ -5,28 +5,28 @@ package com.example.hospitalpro.common.entity;
  */
 public class Doctor {
 	private int id;
-	private String name;
-	private String phone;
+	private String doname;
+	private String dophone;
 	private String sex;
 	private Dept dept; // 所属部门
 	private Uspass uspass; // 账号密码
 	private Station station; // 职位
 	private Work work; // 工作时间
 
-	public String getName() {
-		return name;
+	public String getDoname() {
+		return doname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDoname(String doname) {
+		this.doname = doname;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getDophone() {
+		return dophone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setDophone(String dophone) {
+		this.dophone = dophone;
 	}
 
 	public String getSex() {
