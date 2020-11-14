@@ -35,5 +35,5 @@ public interface DoctorService {
 	/*
 	 * 提交病历并叫号
 	 */
-	public void subend(End end);
+	public Regi subend(End end);
 }

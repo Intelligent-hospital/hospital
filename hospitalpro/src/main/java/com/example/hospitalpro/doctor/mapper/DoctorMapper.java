@@ -20,4 +20,10 @@ public interface DoctorMapper {
 	@Select("select count(*) from regi where time=#{time} and d_id=#{id} and isdelete=0")
 	int regicount(Date time, int id);
 
+//	/*
+//	 * 查询就诊人医生版
+//	 */
+//	@Select
+//	List<Regi> doctorregi();
+
 }

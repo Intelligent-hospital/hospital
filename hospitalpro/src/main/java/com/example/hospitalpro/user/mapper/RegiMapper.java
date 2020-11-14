@@ -36,11 +36,11 @@ public interface RegiMapper {
 	/*
 	 * 查询一个挂号
 	 */
-	@Select("select d_id,pa_id,time from regi where u_id=#{id}")
+	@Select("select d_id,pa_id,time from regi where id=#{id}")
 	@Results(id = "seregi", value = {
 			@Result(column = "d_id", property = "doctor", javaType = Doctor.class, one = @One(select = "com.example.hospitalpro.user.mapper.PatientMapper.find")),
 			@Result(column = "pa_id", property = "patient", javaType = Patient.class, one = @One(select = "com.example.hospitalpro.user.mapper.PatientMapper.findbypat")) })
-	List<Regi> findallreg(int id);
+	Regi findallreg(int id);
 
 	/*
 	 * 查询签到挂号
@@ -48,6 +48,13 @@ public interface RegiMapper {
 	@Select("select id,d_id,pa_id,time,dense_rank() over(order by id) num from regi where time=#{datatime} and sign=1")
 	@ResultMap(value = "seregi")
 	List<Regi> findallregi(String datatime);
+
+	/*
+	 * 查询签到挂号
+	 */
+	@Select("select id,d_id,pa_id,time,dense_rank() over(order by id) num from regi where id=#{id}")
+	@ResultMap(value = "seregi")
+	Regi finbyregiid(int id);
 
 	/**
 	 * 取消预约

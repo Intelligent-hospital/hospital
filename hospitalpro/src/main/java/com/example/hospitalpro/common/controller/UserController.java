@@ -49,7 +49,7 @@ public class UserController {
 
 // 查询用户下就诊人挂号信息具体
 	@GetMapping("/doctor/pat/{id}")
-	public List<Regi> findreg(@PathVariable int id) {
+	public Regi findreg(@PathVariable int id) {
 		return regiMapper.findallreg(id);
 	}
 

@@ -1,6 +1,7 @@
 package com.example.hospitalpro.doctor.service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,12 +20,17 @@ public class DoctorServiceImpl implements DoctorService {
 	RegiMapper regimapper;
 	@Autowired
 	DoctorMapper doctormapper;
+	static List<String> list = new ArrayList();
+	static int num = -1;
 
 	@Override
 	public String callback(int id) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
-		List<Regi> regi = regimapper.findallreg(id);
-		String regitime = df.format(regi.get(0).getTime());
+		Regi regi = regimapper.findallreg(id);
+		if (regi == null) {
+			return "您输入的挂号编号未查到";
+		}
+		String regitime = df.format(regi.getTime());
 		String nowtime = df.format(new Date());
 		if (regitime.equals(nowtime)) {
 			return "当日挂号不可取消";
@@ -73,22 +79,38 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public String signregistr(int id) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
-		List<Regi> regi = regimapper.findallreg(id);
-		String regitime = df.format(regi.get(0).getTime());
+		Regi regi = regimapper.findallreg(id);
+		if (regi == null) {
+			return "您输入的挂号编号未查到";
+		}
+		String regitime = df.format(regi.getTime());
 		String nowtime = df.format(new Date());
 		if (regitime.equals(nowtime)) {
 			regimapper.sign(id);
+			System.out.println(id);
+			list.add(String.valueOf(id));
 			return "签到成功";
 		} else {
-
 			return "只有当日可以签到";
 		}
 	}
 
+	/*
+	 * 叫号
+	 */
 	@Override
-	public void subend(End end) {
+	public Regi subend(End end) {
 		doctormapper.addend(end.getEnd(), end.getDoctor().getId(), end.getRegi().getId());
 		regimapper.statureg(end.getRegi().getId());
+		num++;
+		int a = Integer.valueOf(list.get(num + 1));
+		if (list.size() > 5) {
+			list = new ArrayList<String>();
+			num = -1;
+		}
+		if (a <= list.size()) {
+			return regimapper.finbyregiid(a);
+		}
+		return null;
 	}
-
 }

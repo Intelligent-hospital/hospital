@@ -39,9 +39,7 @@ public class DoctorController {
 	 * 添加病历
 	 */
 	@PostMapping("/patientid/medical")
-	public End addend(@RequestBody End end) {
-		doctorservice.subend(end);
-		return end;
+	public Regi addend(@RequestBody End end) {
+		return doctorservice.subend(end);
 	}
-
 }
