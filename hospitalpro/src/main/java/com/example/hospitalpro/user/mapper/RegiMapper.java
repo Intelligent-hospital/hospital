@@ -22,8 +22,8 @@ public interface RegiMapper {
 	/*
 	 * 挂号
 	 */
-	@Insert("insert into regi(`d_id`, `pa_id`, `time`) values(#{did},#{paid},#{datatime})")
-	void registr(int did, int paid, Date datatime);
+	@Insert("insert into regi(id,`d_id`, `pa_id`, `time`) values(#{id},#{did},#{paid},#{datatime})")
+	void registr(int id, int did, int paid, Date datatime);
 
 	/*
 	 * 查询医生时间

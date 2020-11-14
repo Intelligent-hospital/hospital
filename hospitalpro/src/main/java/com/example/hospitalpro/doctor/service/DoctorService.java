@@ -20,4 +20,9 @@ public interface DoctorService {
 	 * 每个医生当天坐诊时间
 	 */
 	public List<Doctor> regifull(int id);
+
+	/*
+	 * 每个医生当天的挂号量
+	 */
+	public String addregistr(Regi regi);
 }

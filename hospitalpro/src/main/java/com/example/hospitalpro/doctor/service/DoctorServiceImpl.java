@@ -9,12 +9,15 @@ import org.springframework.stereotype.Service;
 
 import com.example.hospitalpro.common.entity.Doctor;
 import com.example.hospitalpro.common.entity.Regi;
+import com.example.hospitalpro.doctor.mapper.DoctorMapper;
 import com.example.hospitalpro.user.mapper.RegiMapper;
 
 @Service
 public class DoctorServiceImpl implements DoctorService {
 	@Autowired
 	RegiMapper regimapper;
+	@Autowired
+	DoctorMapper doctormapper;
 
 	@Override
 	public String callback(int id) {
@@ -40,11 +43,31 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public List<Doctor> regifull(int id) {
-		List<Doctor> work = regimapper.findbywork(id);
-		if (work.get(0).getWork().getFriam() == 1) {
-
-		}
+//		List<Doctor> work = regimapper.findbywork(id);
+//		if (work.get(0).getWork().getFriam() == 1) {
+//
+//		}
 
 		return null;
 	}
+
+	@Override
+	public String addregistr(Regi regi) {
+		int num = doctormapper.regicount(regi.getTime(), regi.getDoctor().getId());
+		if (num <= 5) {
+			java.sql.Date datatime = regi.getTime();
+			int did = regi.getDoctor().getId();
+			System.out.println(did);
+			int paid = regi.getPatient().getId();
+			int id = regi.getId();
+			regimapper.registr(id, did, paid, datatime);
+			return "挂号成功";
+		} else {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			java.sql.Date time = regi.getTime();
+			String datatime = df.format(time);
+			return String.format("对不起,%s的号已挂完,请选择其它日期", datatime);
+		}
+	}
+
 }

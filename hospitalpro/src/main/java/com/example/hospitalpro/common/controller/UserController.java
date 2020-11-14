@@ -1,10 +1,10 @@
 package com.example.hospitalpro.common.controller;
 
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +20,7 @@ import com.example.hospitalpro.doctor.service.DoctorService;
 import com.example.hospitalpro.user.mapper.PatientMapper;
 import com.example.hospitalpro.user.mapper.RegiMapper;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -32,14 +33,8 @@ public class UserController {
 
 //	挂号
 	@PostMapping("/doctor/registration")
-	public Regi addregi(@RequestBody Regi regi) {
-//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		String datatime = df.format(regi.getTime());
-		Date datatime = regi.getTime();
-		int did = regi.getDoctor().getId();
-		int paid = regi.getPatient().getId();
-		regiMapper.registr(did, paid, datatime);
-		return regi;
+	public String addregi(@RequestBody Regi regi) {
+		return doctorservice.addregistr(regi);
 	}
 
 //	查询医生坐诊时间

@@ -3,6 +3,7 @@ package com.example.hospitalpro.common.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import com.example.hospitalpro.doctor.mapper.DoctorMapper;
 import com.example.hospitalpro.doctor.service.DoctorService;
 import com.example.hospitalpro.user.mapper.RegiMapper;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/doctor")
 public class DoctorController {
@@ -33,6 +35,9 @@ public class DoctorController {
 		return doctorservice.rownumber();
 	}
 
+	/*
+	 * 添加病历
+	 */
 	@PostMapping("/patientid/medical")
 	public End addend(@RequestBody End end) {
 		Doctormapper.addend(end.getEnd(), end.getDoctor().getId(), end.getRegi().getId());
