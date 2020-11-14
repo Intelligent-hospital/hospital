@@ -47,7 +47,7 @@ public class UserController {
 		return regiMapper.findbywork(id);
 	}
 
-// 查询用户下就诊人挂号信息具体
+// 查询一个就诊人挂号信息具体
 	@GetMapping("/doctor/pat/{id}")
 	public Regi findreg(@PathVariable int id) {
 		return regiMapper.findallreg(id);
