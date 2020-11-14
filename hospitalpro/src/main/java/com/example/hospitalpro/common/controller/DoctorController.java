@@ -40,7 +40,7 @@ public class DoctorController {
 	 */
 	@PostMapping("/patientid/medical")
 	public End addend(@RequestBody End end) {
-		Doctormapper.addend(end.getEnd(), end.getDoctor().getId(), end.getRegi().getId());
+		doctorservice.subend(end);
 		return end;
 	}
 

@@ -64,4 +64,12 @@ public interface RegiMapper {
 	 */
 	@Update("update regi set sign=1 where id=#{id}")
 	void sign(int id);
+
+	/**
+	 * 就诊
+	 * 
+	 * @param id 就诊人id
+	 */
+	@Update("update regi set statu=1 where id=#{id}")
+	void statureg(int id);
 }

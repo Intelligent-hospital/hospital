@@ -3,6 +3,7 @@ package com.example.hospitalpro.doctor.service;
 import java.util.List;
 
 import com.example.hospitalpro.common.entity.Doctor;
+import com.example.hospitalpro.common.entity.End;
 import com.example.hospitalpro.common.entity.Regi;
 
 public interface DoctorService {
@@ -30,4 +31,9 @@ public interface DoctorService {
 	 * 签到
 	 */
 	public String signregistr(int id);
+
+	/*
+	 * 提交病历并叫号
+	 */
+	public void subend(End end);
 }

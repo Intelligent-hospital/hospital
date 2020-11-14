@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.hospitalpro.common.entity.Doctor;
+import com.example.hospitalpro.common.entity.End;
 import com.example.hospitalpro.common.entity.Regi;
 import com.example.hospitalpro.doctor.mapper.DoctorMapper;
 import com.example.hospitalpro.user.mapper.RegiMapper;
@@ -57,7 +58,6 @@ public class DoctorServiceImpl implements DoctorService {
 		if (num < 5) {
 			java.sql.Date datatime = regi.getTime();
 			int did = regi.getDoctor().getId();
-			System.out.println(did);
 			int paid = regi.getPatient().getId();
 			int id = regi.getId();
 			regimapper.registr(id, did, paid, datatime);
@@ -83,6 +83,12 @@ public class DoctorServiceImpl implements DoctorService {
 
 			return "只有当日可以签到";
 		}
+	}
+
+	@Override
+	public void subend(End end) {
+		doctormapper.addend(end.getEnd(), end.getDoctor().getId(), end.getRegi().getId());
+		regimapper.statureg(end.getRegi().getId());
 	}
 
 }
