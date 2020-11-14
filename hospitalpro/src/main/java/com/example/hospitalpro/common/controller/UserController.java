@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.hospitalpro.common.entity.Dept;
 import com.example.hospitalpro.common.entity.Doctor;
 import com.example.hospitalpro.common.entity.Patient;
 import com.example.hospitalpro.common.entity.Regi;
 import com.example.hospitalpro.doctor.service.DoctorService;
+import com.example.hospitalpro.user.mapper.DeptDoctorMapper;
 import com.example.hospitalpro.user.mapper.PatientMapper;
 import com.example.hospitalpro.user.mapper.RegiMapper;
 
@@ -30,6 +32,8 @@ public class UserController {
 	PatientMapper patinetmapper;
 	@Autowired
 	DoctorService doctorservice;
+	@Autowired
+	DeptDoctorMapper doctorMapper;
 
 //	挂号
 	@PostMapping("/doctor/registration")
@@ -88,8 +92,42 @@ public class UserController {
 	/*
 	 * 取消预约
 	 */
-	@PutMapping("/doctor/{appointmentid}")
-	public String cancelReservation(int id) {
+	@PutMapping("/callback/{id}")
+	public String cancelReservation(@PathVariable int id) {
 		return doctorservice.callback(id);
+	}
+
+	/*
+	 * 签到
+	 */
+	@PutMapping("/sign/{id}")
+	public String signreg(@PathVariable int id) {
+		return doctorservice.signregistr(id);
+	}
+
+	/**
+	 * 获取所有医生
+	 * 
+	 * @return
+	 */
+	@GetMapping("/doctor")
+	public List<Doctor> findByAll() {
+		return doctorMapper.findDoctorAll();
+	}
+
+	/**
+	 * 获取所有科室
+	 */
+	@GetMapping("/office")
+	public List<Dept> findByDepts() {
+		return doctorMapper.findAllDept();
+	}
+
+	/**
+	 * 根据 科室ID 获取该科室所有医生
+	 */
+	@GetMapping("/{dept_id}/doctor")
+	public List<Doctor> findByDeptId(@PathVariable int dept_id) {
+		return doctorMapper.findByDeIdList(dept_id);
 	}
 }

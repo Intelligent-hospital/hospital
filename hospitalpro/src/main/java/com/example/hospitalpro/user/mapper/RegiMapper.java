@@ -54,7 +54,7 @@ public interface RegiMapper {
 	 * 
 	 * @param id 就诊人id
 	 */
-	@Update("update Regi set isdelete=1 where id=#{id}")
+	@Update("update regi set isdelete=1 where id=#{id}")
 	void cancelReservation(int id);
 
 	/**
@@ -62,6 +62,6 @@ public interface RegiMapper {
 	 * 
 	 * @param id 就诊人id
 	 */
-	@Update("update Regi set sign=1 where id=#{id}")
+	@Update("update regi set sign=1 where id=#{id}")
 	void sign(int id);
 }

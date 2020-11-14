@@ -25,4 +25,9 @@ public interface DoctorService {
 	 * 每个医生当天的挂号量
 	 */
 	public String addregistr(Regi regi);
+
+	/*
+	 * 签到
+	 */
+	public String signregistr(int id);
 }

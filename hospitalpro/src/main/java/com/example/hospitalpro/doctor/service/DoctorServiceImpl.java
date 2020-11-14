@@ -26,9 +26,9 @@ public class DoctorServiceImpl implements DoctorService {
 		String regitime = df.format(regi.get(0).getTime());
 		String nowtime = df.format(new Date());
 		if (regitime.equals(nowtime)) {
-			return "当日预约不可取消";
+			return "当日挂号不可取消";
 		} else {
-			regimapper.sign(id);
+			regimapper.cancelReservation(id);
 			return "预约成功取消";
 		}
 	}
@@ -54,7 +54,7 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public String addregistr(Regi regi) {
 		int num = doctormapper.regicount(regi.getTime(), regi.getDoctor().getId());
-		if (num <= 5) {
+		if (num < 5) {
 			java.sql.Date datatime = regi.getTime();
 			int did = regi.getDoctor().getId();
 			System.out.println(did);
@@ -67,6 +67,21 @@ public class DoctorServiceImpl implements DoctorService {
 			java.sql.Date time = regi.getTime();
 			String datatime = df.format(time);
 			return String.format("对不起,%s的号已挂完,请选择其它日期", datatime);
+		}
+	}
+
+	@Override
+	public String signregistr(int id) {
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+		List<Regi> regi = regimapper.findallreg(id);
+		String regitime = df.format(regi.get(0).getTime());
+		String nowtime = df.format(new Date());
+		if (regitime.equals(nowtime)) {
+			regimapper.sign(id);
+			return "签到成功";
+		} else {
+
+			return "只有当日可以签到";
 		}
 	}
 
