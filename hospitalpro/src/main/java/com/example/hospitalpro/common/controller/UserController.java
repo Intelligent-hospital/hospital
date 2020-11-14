@@ -80,10 +80,10 @@ public class UserController {
 		String idCard = patient.getPaidCard();
 		// 截取身份证第15位判断性别
 		int sex = idCard.charAt(16);
-		if (sex == 1) {
-			patient.setSex("男");
-		} else {
+		if (sex % 2 == 0) {
 			patient.setSex("女");
+		} else {
+			patient.setSex("男");
 		}
 		// 获取当年年份再减去身份证的7到10位得出年龄
 		int age = (Calendar.getInstance().get(Calendar.YEAR)) - (Integer.parseInt(idCard.substring(6, 10)));
