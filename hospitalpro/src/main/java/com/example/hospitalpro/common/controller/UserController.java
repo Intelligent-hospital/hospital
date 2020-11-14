@@ -53,6 +53,12 @@ public class UserController {
 		return regiMapper.findallreg(id);
 	}
 
+	// 查询用户下就诊人挂号信息具体
+	@GetMapping("/doctor/usergi/{id}")
+	public List<Regi> findbyuid(@PathVariable int id) {
+		return regiMapper.finbyuid(id);
+	}
+
 	/**
 	 * 找到所有就诊人信息
 	 * 

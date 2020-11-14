@@ -50,11 +50,18 @@ public interface RegiMapper {
 	List<Regi> findallregi(String datatime);
 
 	/*
-	 * 查询签到挂号
+	 * 查询挂号编号
 	 */
 	@Select("select id,d_id,pa_id,time,dense_rank() over(order by id) num from regi where id=#{id}")
 	@ResultMap(value = "seregi")
 	Regi finbyregiid(int id);
+
+	/*
+	 * 查询用户挂号
+	 */
+	@Select("select id,d_id,pa_id,time from regi where u_id=#{id}")
+	@ResultMap(value = "seregi")
+	List<Regi> finbyuid(int id);
 
 	/**
 	 * 取消预约
