@@ -103,14 +103,16 @@ public class DoctorServiceImpl implements DoctorService {
 		doctormapper.addend(end.getEnd(), end.getDoctor().getId(), end.getRegi().getId());
 		regimapper.statureg(end.getRegi().getId());
 		num++;
-		int a = Integer.valueOf(list.get(num + 1));
+		int a = Integer.valueOf(list.get(num));
 		if (list.size() > 5) {
 			list = new ArrayList<String>();
 			num = -1;
 		}
-		if (a <= list.size()) {
+		if (num <= list.size()) {
 			return regimapper.finbyregiid(a);
+		}else {
+			System.out.println("123");
+			return null;
 		}
-		return null;
 	}
 }
