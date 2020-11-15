@@ -38,6 +38,7 @@ public interface DeptDoctorMapper {
 	 * @return
 	 */
 	@Select("select * from doctor where de_id = #{dept_id}")
+	@ResultMap(value = "detorMap")
 	public List<Doctor> findByDeIdList(int dept_id);
 
 	/*
