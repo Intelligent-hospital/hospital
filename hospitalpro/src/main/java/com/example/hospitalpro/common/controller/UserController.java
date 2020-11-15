@@ -136,4 +136,12 @@ public class UserController {
 	public List<Doctor> findByDeptId(@PathVariable int dept_id) {
 		return doctorMapper.findByDeIdList(dept_id);
 	}
+
+	/*
+	 * 查询一个医生
+	 */
+	@GetMapping("/dept/doctor/{id}")
+	public Doctor findBydoctorId(@PathVariable int id) {
+		return doctorMapper.findbyid(id);
+	}
 }

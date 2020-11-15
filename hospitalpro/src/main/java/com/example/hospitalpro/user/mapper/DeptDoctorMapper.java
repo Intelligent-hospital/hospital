@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
@@ -38,6 +39,13 @@ public interface DeptDoctorMapper {
 	 */
 	@Select("select * from doctor where de_id = #{dept_id}")
 	public List<Doctor> findByDeIdList(int dept_id);
+
+	/*
+	 * 查询一个医生
+	 */
+	@Select("select * from doctor where id=#{id}")
+	@ResultMap(value = "detorMap")
+	public Doctor findbyid(int id);
 
 	/**
 	 * 根据 科室ID 查询 科室信息
