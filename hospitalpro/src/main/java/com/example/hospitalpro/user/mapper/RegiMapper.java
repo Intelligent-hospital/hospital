@@ -59,7 +59,7 @@ public interface RegiMapper {
 	/*
 	 * 查询用户挂号
 	 */
-	@Select("select id,d_id,pa_id,time from regi where u_id=#{id} and statu=0 and isdelete=0")
+	@Select("select id,d_id,pa_id,time from regi where u_id=#{id} and sign=1")
 	@ResultMap(value = "seregi")
 	List<Regi> finbyuid(int id);
 
