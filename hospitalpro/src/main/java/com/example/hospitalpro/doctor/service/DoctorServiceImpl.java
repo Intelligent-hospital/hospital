@@ -41,10 +41,10 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public List<Regi> rownumber() {
+	public List<Regi> rownumber(int id) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String datatime = df.format(new Date());
-		List<Regi> regi = regimapper.findallregi(datatime);
+		List<Regi> regi = regimapper.findallregi(datatime, id);
 		return regi;
 	}
 

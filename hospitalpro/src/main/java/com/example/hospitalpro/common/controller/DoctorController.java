@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,8 +32,8 @@ public class DoctorController {
 	 * 医生排号
 	 */
 	@GetMapping("/regi")
-	public List<Regi> findbynowtime() {
-		return doctorservice.rownumber();
+	public List<Regi> findbynowtime(@PathVariable int id) {
+		return doctorservice.rownumber(id);
 	}
 
 	/*
@@ -42,4 +43,5 @@ public class DoctorController {
 	public Regi addend(@RequestBody End end) {
 		return doctorservice.subend(end);
 	}
+
 }

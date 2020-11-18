@@ -45,9 +45,9 @@ public interface RegiMapper {
 	/*
 	 * 查询签到挂号
 	 */
-	@Select("select id,d_id,pa_id,time,dense_rank() over(order by id) num from regi where time=#{datatime} and sign=1")
+	@Select("select id,d_id,pa_id,time,dense_rank() over(order by id) num from regi where time=#{datatime} and sign=1 and d_id=#{id}")
 	@ResultMap(value = "seregi")
-	List<Regi> findallregi(String datatime);
+	List<Regi> findallregi(String datatime, int id);
 
 	/*
 	 * 查询挂号编号

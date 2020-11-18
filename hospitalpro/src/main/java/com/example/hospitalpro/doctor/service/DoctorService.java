@@ -15,7 +15,7 @@ public interface DoctorService {
 	/*
 	 * 当天排号
 	 */
-	public List<Regi> rownumber();
+	public List<Regi> rownumber(int id);
 
 	/*
 	 * 每个医生当天坐诊时间
