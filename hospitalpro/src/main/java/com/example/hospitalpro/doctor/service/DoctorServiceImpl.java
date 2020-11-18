@@ -87,7 +87,7 @@ public class DoctorServiceImpl implements DoctorService {
 		String nowtime = df.format(new Date());
 		if (regitime.equals(nowtime)) {
 			regimapper.sign(id);
-			System.out.println(id);
+			System.out.println("list" + id);
 			list.add(String.valueOf(id));
 			return "签到成功";
 		} else {
@@ -103,14 +103,18 @@ public class DoctorServiceImpl implements DoctorService {
 		doctormapper.addend(end.getEnd(), end.getDoctor().getId(), end.getRegi().getId());
 		regimapper.statureg(end.getRegi().getId());
 		num++;
-		int a = Integer.valueOf(list.get(num));
-		if (list.size() > 5) {
+		System.out.println("num:" + num);
+		if (num > 4) {
+			System.out.println("listsize:" + list.size());
 			list = new ArrayList<String>();
 			num = -1;
+			return null;
 		}
+		int a = Integer.valueOf(list.get(num));
+		System.out.println("numa" + num);
 		if (num <= list.size()) {
 			return regimapper.finbyregiid(a);
-		}else {
+		} else {
 			System.out.println("123");
 			return null;
 		}

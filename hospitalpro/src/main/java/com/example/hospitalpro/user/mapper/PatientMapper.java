@@ -2,6 +2,7 @@ package com.example.hospitalpro.user.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -30,5 +31,8 @@ public interface PatientMapper {
 	 */
 	@Insert("insert into patient(u_id,paname,paidCard,sex,age) values(#{user.id},#{paname},#{paidCard},#{sex},#{age})")
 	void addPatient(Patient patient);
+
+	@Delete("delete from patient where id=#{id}")
+	void deletepat(int id);
 
 }
